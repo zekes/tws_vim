@@ -14,7 +14,7 @@ syntax case ignore
 syn keyword schedKey  abendprompt    after          as            at           autodocoff
 syn keyword schedKey  autodocon      canc           carryforward  confirmed    continue
 syn keyword schedKey  dateval        day[s]         day_of_week   deadline     description
-syn keyword schedKey  docommand      draft          end           every        everyday
+syn keyword schedKey  docommand      draft          every        everyday
 syn keyword schedKey  except         extraneous     fdignore      fdnext       fdprev
 syn keyword schedKey  filename       follows        freedays      from         go
 syn keyword schedKey  hi             i18n_id        i18n_priority interactive  isdefault
@@ -24,27 +24,44 @@ syn keyword schedKey  notempty       number         on            onuntil      o
 syn keyword schedKey  opens          order          previous      priority     prompt
 syn keyword schedKey  qualifier      rccondsucc     recovery      relative     request
 syn keyword schedKey  rerun          runcycle       sa            sameday      schedtime
-syn keyword schedKey  schedule       scriptname     stop          streamlogon  su
+syn keyword schedKey  scriptname     stop          streamlogon  su
 syn keyword schedKey  tasktype       timezone       to            token_in     until
 syn keyword schedKey  validfrom      validto        vartable      vt
 syn keyword schedKey  workday[s]     weekday[s]
+syn keyword twsBracket schedule      end  
 syn match  twsParm  /\^\w*\^/
+syn match  twsParm  /^:/
 " syn keyword comment  match 
-syn match     twsHash         "#" display contains=pythonTodo,@Spell
+syn match     twsBox    "\w*#"
+syn match     twsDelimiter    "#"
 syn match     twsComment      "^#.*$" display contains=pythonTodo,@Spell
 syn match     twsComment      "*.*$" display contains=pythonTodo,@Spell
 syn region    confString      start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline contains=twsParm
 syn region    confString      start=+'+ skip=+\\\\\|\\'+ end=+'+ oneline
 
+syn region    twsFilePath      start=/(/ skip=+\\"/  + end=/)/   oneline contains=twsParm
 
 
 highlight link twsComment  Comment
 highlight link schedKey  Keyword
-highlight link twsHash  Keyword
-highlight link twsParm     PreCondit
-highlight link twsParm     Structure
+highlight link twsHash   Keyword
+highlight link twsBracket   SpecialKey
+" highlight link twsBox    Function
+highlight link twsBox     PreProc
+" highlight link twsBox    Include
+" highlight link twsParm     PreCondit
+" highlight link twsParm     Structure
+highlight link twsParm        Identifier
+" highlight link twsParm        Constant
+highlight link twsDelimiter   Delimiter
+highlight link twsFilePath    String
 " highlight link schedKey  Comment
-hi def link confString  String
+hi def link confString     String
+
+
+
+
+" highlight link rNumber " "
 
 
 
