@@ -1,5 +1,5 @@
 # tws_vim
-Vim syntax files for TWS (Tivoli Workload Scheduler)
+Vim syntax files for TWS (Tivoli Workload Scheduler, aka IBM Workload Scheduler)
 
 Syntax Highlighting for TWS (Tivoli Workload Scheduler), also known as IBM Workload Scheduler, and Maestro.
 
